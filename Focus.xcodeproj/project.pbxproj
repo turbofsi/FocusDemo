@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1812D9B91A8AE33B00CD0C65 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9B81A8AE33B00CD0C65 /* AudioToolbox.framework */; };
+		1812D9BB1A8AE34900CD0C65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9BA1A8AE34900CD0C65 /* QuartzCore.framework */; };
+		1812D9BD1A8AE35600CD0C65 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9BC1A8AE35600CD0C65 /* ImageIO.framework */; };
+		1812D9BF1A8AE36300CD0C65 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9BE1A8AE36300CD0C65 /* CoreVideo.framework */; };
+		1812D9C11A8AE36E00CD0C65 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9C01A8AE36E00CD0C65 /* CoreMedia.framework */; };
+		1812D9C31A8AE37900CD0C65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9C21A8AE37900CD0C65 /* CoreGraphics.framework */; };
+		1812D9C51A8AE38900CD0C65 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1812D9C41A8AE38900CD0C65 /* CoreImage.framework */; };
+		1824E1601A8AD1C5007A5FEF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1824E15F1A8AD1C5007A5FEF /* AVFoundation.framework */; };
+		1824E1621A8AD246007A5FEF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1824E1611A8AD246007A5FEF /* CoreAudio.framework */; };
+		1824E1641A8AD8E7007A5FEF /* balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1824E1631A8AD8E7007A5FEF /* balloon.png */; };
 		18790E0C1A893201002B7D24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E0B1A893201002B7D24 /* main.m */; };
 		18790E0F1A893201002B7D24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E0E1A893201002B7D24 /* AppDelegate.m */; };
-		18790E121A893201002B7D24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E111A893201002B7D24 /* ViewController.m */; };
 		18790E151A893201002B7D24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18790E131A893201002B7D24 /* Main.storyboard */; };
 		18790E171A893201002B7D24 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18790E161A893201002B7D24 /* Images.xcassets */; };
 		18790E1A1A893201002B7D24 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18790E181A893201002B7D24 /* LaunchScreen.xib */; };
 		18790E261A893201002B7D24 /* FocusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E251A893201002B7D24 /* FocusTests.m */; };
+		18790E311A89327B002B7D24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E301A89327B002B7D24 /* MainViewController.m */; };
+		18790E341A893716002B7D24 /* BreathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E331A893716002B7D24 /* BreathViewController.m */; };
+		18790E371A89374A002B7D24 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E361A89374A002B7D24 /* FaceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +39,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1812D9B81A8AE33B00CD0C65 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1812D9BA1A8AE34900CD0C65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1812D9BC1A8AE35600CD0C65 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1812D9BE1A8AE36300CD0C65 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1812D9C01A8AE36E00CD0C65 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1812D9C21A8AE37900CD0C65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1812D9C41A8AE38900CD0C65 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		1824E15F1A8AD1C5007A5FEF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1824E1611A8AD246007A5FEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		1824E1631A8AD8E7007A5FEF /* balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balloon.png; sourceTree = "<group>"; };
 		18790E061A893201002B7D24 /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18790E0A1A893201002B7D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18790E0B1A893201002B7D24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18790E0D1A893201002B7D24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18790E0E1A893201002B7D24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18790E101A893201002B7D24 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18790E111A893201002B7D24 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18790E141A893201002B7D24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18790E161A893201002B7D24 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18790E191A893201002B7D24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		18790E1F1A893201002B7D24 /* FocusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18790E241A893201002B7D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18790E251A893201002B7D24 /* FocusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FocusTests.m; sourceTree = "<group>"; };
+		18790E2F1A89327B002B7D24 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		18790E301A89327B002B7D24 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		18790E321A893716002B7D24 /* BreathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreathViewController.h; sourceTree = "<group>"; };
+		18790E331A893716002B7D24 /* BreathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreathViewController.m; sourceTree = "<group>"; };
+		18790E351A89374A002B7D24 /* FaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
+		18790E361A89374A002B7D24 /* FaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1812D9C51A8AE38900CD0C65 /* CoreImage.framework in Frameworks */,
+				1812D9C31A8AE37900CD0C65 /* CoreGraphics.framework in Frameworks */,
+				1812D9C11A8AE36E00CD0C65 /* CoreMedia.framework in Frameworks */,
+				1812D9BF1A8AE36300CD0C65 /* CoreVideo.framework in Frameworks */,
+				1812D9BD1A8AE35600CD0C65 /* ImageIO.framework in Frameworks */,
+				1812D9BB1A8AE34900CD0C65 /* QuartzCore.framework in Frameworks */,
+				1812D9B91A8AE33B00CD0C65 /* AudioToolbox.framework in Frameworks */,
+				1824E1621A8AD246007A5FEF /* CoreAudio.framework in Frameworks */,
+				1824E1601A8AD1C5007A5FEF /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +98,15 @@
 		18790DFD1A893201002B7D24 = {
 			isa = PBXGroup;
 			children = (
+				1812D9C41A8AE38900CD0C65 /* CoreImage.framework */,
+				1812D9C21A8AE37900CD0C65 /* CoreGraphics.framework */,
+				1812D9C01A8AE36E00CD0C65 /* CoreMedia.framework */,
+				1812D9BE1A8AE36300CD0C65 /* CoreVideo.framework */,
+				1812D9BC1A8AE35600CD0C65 /* ImageIO.framework */,
+				1812D9BA1A8AE34900CD0C65 /* QuartzCore.framework */,
+				1812D9B81A8AE33B00CD0C65 /* AudioToolbox.framework */,
+				1824E1611A8AD246007A5FEF /* CoreAudio.framework */,
+				1824E15F1A8AD1C5007A5FEF /* AVFoundation.framework */,
 				18790E081A893201002B7D24 /* Focus */,
 				18790E221A893201002B7D24 /* FocusTests */,
 				18790E071A893201002B7D24 /* Products */,
@@ -83,8 +127,13 @@
 			children = (
 				18790E0D1A893201002B7D24 /* AppDelegate.h */,
 				18790E0E1A893201002B7D24 /* AppDelegate.m */,
-				18790E101A893201002B7D24 /* ViewController.h */,
-				18790E111A893201002B7D24 /* ViewController.m */,
+				18790E2F1A89327B002B7D24 /* MainViewController.h */,
+				18790E301A89327B002B7D24 /* MainViewController.m */,
+				18790E321A893716002B7D24 /* BreathViewController.h */,
+				18790E331A893716002B7D24 /* BreathViewController.m */,
+				18790E351A89374A002B7D24 /* FaceViewController.h */,
+				18790E361A89374A002B7D24 /* FaceViewController.m */,
+				1824E1631A8AD8E7007A5FEF /* balloon.png */,
 				18790E131A893201002B7D24 /* Main.storyboard */,
 				18790E161A893201002B7D24 /* Images.xcassets */,
 				18790E181A893201002B7D24 /* LaunchScreen.xib */,
@@ -199,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1824E1641A8AD8E7007A5FEF /* balloon.png in Resources */,
 				18790E151A893201002B7D24 /* Main.storyboard in Resources */,
 				18790E1A1A893201002B7D24 /* LaunchScreen.xib in Resources */,
 				18790E171A893201002B7D24 /* Images.xcassets in Resources */,
@@ -219,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18790E121A893201002B7D24 /* ViewController.m in Sources */,
 				18790E0F1A893201002B7D24 /* AppDelegate.m in Sources */,
+				18790E311A89327B002B7D24 /* MainViewController.m in Sources */,
+				18790E371A89374A002B7D24 /* FaceViewController.m in Sources */,
+				18790E341A893716002B7D24 /* BreathViewController.m in Sources */,
 				18790E0C1A893201002B7D24 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +464,7 @@
 				18790E2B1A893201002B7D24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18790E2C1A893201002B7D24 /* Build configuration list for PBXNativeTarget "FocusTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +473,7 @@
 				18790E2E1A893201002B7D24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

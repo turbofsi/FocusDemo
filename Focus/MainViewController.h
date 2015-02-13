@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  Focus
 //
 //  Created by apple on 2015-02-09.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
 
+
+- (IBAction)unwindtoMain:(UIStoryboardSegue *)segue;
 
 @end
-
