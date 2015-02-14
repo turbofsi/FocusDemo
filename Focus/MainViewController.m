@@ -178,7 +178,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 - (IBAction)unwindtoMain:(UIStoryboardSegue *)segue {
-    isPrepared = YES;
+    
     sensor_count = 0;
     [_session startRunning];
 
@@ -186,6 +186,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 
 - (IBAction)StartTimer:(id)sender {
+    isPrepared = YES;
     __block int timeout = 25 * 60;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
