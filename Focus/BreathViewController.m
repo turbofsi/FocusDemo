@@ -72,6 +72,7 @@
         [imgView removeFromSuperview];
         UIButton *btn = (id)[self.view viewWithTag:102];
         btn.enabled = YES;
+        [btn setBackgroundImage:[UIImage imageNamed:@"check2`"] forState:UIControlStateNormal];
         [recorder stop];
         [levelTimer invalidate];
     }

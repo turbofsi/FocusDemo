@@ -166,6 +166,17 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"MainToBreath"]) {
+        UIButton *setBtn = (id)[self.view viewWithTag:101];
+        setBtn.enabled = NO;
+        
+        UIButton *startBtn = (id)[self.view viewWithTag:102];
+        startBtn.enabled = YES;
+     
+    }
+}
+
 - (IBAction)unwindtoMain:(UIStoryboardSegue *)segue {
     isPrepared = YES;
     sensor_count = 0;
@@ -174,4 +185,63 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 
+- (IBAction)StartTimer:(id)sender {
+    __block int timeout = 25 * 60;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
+    
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0){ //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                NSLog(@"Time up!");
+                _timerLabel.text = @"00:00";
+                UIButton *setBtn = (id)[self.view viewWithTag:101];
+                setBtn.enabled = YES;
+                isPrepared = NO;
+                [_session stopRunning];
+            });
+        }
+        //
+        
+        
+        else {
+            int minutes = timeout / 60;
+            int seconds = timeout % 60;
+            
+            NSString *minStr = [[NSString alloc] init];
+            NSString *secStr = [[NSString alloc] init];
+            
+            if (minutes < 10) {
+                minStr = [NSString stringWithFormat:@"0%d", minutes];
+            } else {
+                minStr = [NSString stringWithFormat:@"%d", minutes];
+            }
+            
+            if (seconds < 10) {
+                secStr = [NSString stringWithFormat:@"0%d", seconds];
+            } else {
+                secStr = [NSString stringWithFormat:@"%d", seconds];
+            }
+            
+            NSString *strTime = [NSString stringWithFormat:@"%@:%@", minStr, secStr];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                _timerLabel.text = strTime;
+                
+            });
+            timeout--;
+            
+        }
+    });
+    
+    
+    dispatch_resume(_timer);
+    
+    UIButton *btn = (id)[self.view viewWithTag:102];
+    btn.enabled = NO;
+    
+}
 @end

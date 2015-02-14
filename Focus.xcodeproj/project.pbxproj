@@ -26,6 +26,10 @@
 		18790E311A89327B002B7D24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E301A89327B002B7D24 /* MainViewController.m */; };
 		18790E341A893716002B7D24 /* BreathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E331A893716002B7D24 /* BreathViewController.m */; };
 		18790E371A89374A002B7D24 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E361A89374A002B7D24 /* FaceViewController.m */; };
+		189B32121A8EFC91002842E3 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32111A8EFC91002842E3 /* setting.png */; };
+		189B32141A8EFF36002842E3 /* check1.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32131A8EFF36002842E3 /* check1.png */; };
+		189B32161A8EFF3A002842E3 /* check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32151A8EFF3A002842E3 /* check2.png */; };
+		189B32181A8F032D002842E3 /* startBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32171A8F032D002842E3 /* startBtn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		18790E331A893716002B7D24 /* BreathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreathViewController.m; sourceTree = "<group>"; };
 		18790E351A89374A002B7D24 /* FaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
 		18790E361A89374A002B7D24 /* FaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
+		189B32111A8EFC91002842E3 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		189B32131A8EFF36002842E3 /* check1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check1.png; sourceTree = "<group>"; };
+		189B32151A8EFF3A002842E3 /* check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check2.png; sourceTree = "<group>"; };
+		189B32171A8F032D002842E3 /* startBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,10 @@
 				18790E351A89374A002B7D24 /* FaceViewController.h */,
 				18790E361A89374A002B7D24 /* FaceViewController.m */,
 				1824E1631A8AD8E7007A5FEF /* balloon.png */,
+				189B32111A8EFC91002842E3 /* setting.png */,
+				189B32171A8F032D002842E3 /* startBtn.png */,
+				189B32131A8EFF36002842E3 /* check1.png */,
+				189B32151A8EFF3A002842E3 /* check2.png */,
 				18790E131A893201002B7D24 /* Main.storyboard */,
 				18790E161A893201002B7D24 /* Images.xcassets */,
 				18790E181A893201002B7D24 /* LaunchScreen.xib */,
@@ -248,9 +260,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189B32141A8EFF36002842E3 /* check1.png in Resources */,
 				1824E1641A8AD8E7007A5FEF /* balloon.png in Resources */,
+				189B32161A8EFF3A002842E3 /* check2.png in Resources */,
 				18790E151A893201002B7D24 /* Main.storyboard in Resources */,
+				189B32181A8F032D002842E3 /* startBtn.png in Resources */,
 				18790E1A1A893201002B7D24 /* LaunchScreen.xib in Resources */,
+				189B32121A8EFC91002842E3 /* setting.png in Resources */,
 				18790E171A893201002B7D24 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

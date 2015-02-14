@@ -17,6 +17,8 @@
 @interface MainViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *liveImage;
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+- (IBAction)StartTimer:(id)sender;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property (nonatomic, strong) CIDetector *faceDetector;
