@@ -18,6 +18,9 @@
 int sensor_count = 0;
 bool isPrepared = NO;
 
+int left_x_position, right_x_position;
+int left_y_position, right_y_position;
+int mouth_x_position, mouth_y_position;
 
 -(void)viewDidAppear:(BOOL)animated{
     // Live Image Part
@@ -103,7 +106,24 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         }
     }
     else{
-        sensor_count = 0;
+        for (CIFaceFeature *f in features) {
+            sensor_count = 0;
+            if (f.hasLeftEyePosition) {
+                left_x_position = f.leftEyePosition.x;
+                left_y_position = f.leftEyePosition.y;
+                
+            }
+            if (f.hasRightEyePosition) {
+                right_x_position = f.rightEyePosition.x;
+                right_y_position = f.rightEyePosition.y;
+            }
+            
+            if (f.hasMouthPosition) {
+                mouth_x_position = f.mouthPosition.x;
+                mouth_y_position = f.mouthPosition.y;
+            }
+            
+        }
     }
     
 }
@@ -158,6 +178,18 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     // Do any additional setup after loading the view, typically from a nib.
     NSDictionary *detectorOptions = [[NSDictionary alloc] initWithObjectsAndKeys:CIDetectorAccuracyLow, CIDetectorAccuracy, nil];
     self.faceDetector = [CIDetector detectorOfType:CIDetectorTypeFace context:nil options:detectorOptions];
+    UIImage *alertImg = [UIImage imageNamed:@"alertframe"];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:alertImg];
+    imgView.frame = CGRectMake(160 - 75, 116, 150, 200);
+    imgView.alpha = 0;
+    imgView.tag = 107;
+    [self.view addSubview:imgView];
+    [self.view bringSubviewToFront:imgView];
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.333 target:self selector:@selector(postionUpdate) userInfo:nil repeats:YES];
+    
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
     
 }
 
@@ -245,4 +277,31 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     btn.enabled = NO;
     
 }
+
+- (void)postionUpdate {
+    if (isPrepared) {
+        float dis = sqrt(pow((left_x_position - right_x_position), 2) + pow((left_y_position - right_y_position), 2));
+        float k = (float)(left_x_position - right_x_position) / (left_y_position - right_y_position);
+        //    _leftLabel.text = [NSString stringWithFormat:@"%.2f", dis];
+        //    _rightLabel.text = [NSString stringWithFormat:@"%.2f", k];
+        
+        UIImageView *imgView = (id)[self.view viewWithTag:107];
+        if (k < 0) {
+            k = -k;
+        }
+        
+        if (mouth_x_position > 290 || k > 0.2 || dis > 80) {
+            imgView.alpha = 0.7;
+            _liveImage.alpha = 0.5;
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            
+        } else {
+            _liveImage.alpha = 0;
+            imgView.alpha = 0;
+        }
+
+    }
+}
+
+
 @end

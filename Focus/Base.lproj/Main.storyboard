@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUV-to-yoy">
-                                <rect key="frame" x="102" y="53" width="116" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnd-D1-gwY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnd-D1-gwY">
                                 <rect key="frame" x="32" y="230" width="251" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="108" id="Gct-NT-Ofk"/>
@@ -29,10 +29,10 @@
                                 <color key="textColor" red="1" green="0.1464227924" blue="0.33999680970000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKU-Hx-oeK">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKU-Hx-oeK">
                                 <rect key="frame" x="42" y="457" width="237" height="62"/>
                                 <subviews>
-                                    <button opaque="NO" tag="102" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-Dk-vjO">
+                                    <button opaque="NO" tag="102" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-Dk-vjO">
                                         <rect key="frame" x="16" y="4" width="57" height="57"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="TQV-Y7-90F"/>
@@ -44,7 +44,7 @@
                                             <action selector="StartTimer:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qXu-DV-HE8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="101" contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-qC-ADB">
+                                    <button opaque="NO" tag="101" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-qC-ADB">
                                         <rect key="frame" x="149" y="-9" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="aQP-iK-Lmc"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="MbQ-Dk-vjO" firstAttribute="leading" secondItem="DKU-Hx-oeK" secondAttribute="leading" constant="16" id="1tz-Nw-UdG"/>
                                     <constraint firstAttribute="trailing" secondItem="oIX-qC-ADB" secondAttribute="trailing" constant="8" id="5GU-9d-VSi"/>
@@ -83,6 +83,9 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="DKU-Hx-oeK" secondAttribute="centerX" id="Tyh-o9-jDS"/>
                             <constraint firstAttribute="centerX" secondItem="Rnd-D1-gwY" secondAttribute="centerX" id="Y3k-gk-G1l"/>
+                            <constraint firstItem="Rnd-D1-gwY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="16" id="YYm-kD-A9P"/>
+                            <constraint firstItem="Rnd-D1-gwY" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="eDN-qE-bXi"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DKU-Hx-oeK" secondAttribute="bottom" constant="49" id="hPS-p6-9A8"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

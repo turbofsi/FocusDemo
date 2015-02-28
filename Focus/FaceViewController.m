@@ -74,6 +74,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIImage *alertImg = [UIImage imageNamed:@"alertframe"];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:alertImg];
+    imgView.frame = CGRectMake(160 - 75, 116, 150, 200);
+    imgView.tag = 107;
+    [self.view addSubview:imgView];
+    [self.view bringSubviewToFront:imgView];
 }
 
 - (void)didReceiveMemoryWarning {
