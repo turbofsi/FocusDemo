@@ -101,9 +101,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if ([features count] == 0) {
         sensor_count++;
         NSLog(@"%d", sensor_count);
-        if (sensor_count > 50 && isPrepared == YES) {
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        }
     }
     else{
         for (CIFaceFeature *f in features) {
@@ -289,7 +286,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         if (k < 0) {
             k = -k;
         }
-        
+/**************************sitting posture notification**************************/
         if (mouth_x_position > 290 || k > 0.2 || dis > 80) {
             imgView.alpha = 0.7;
             _liveImage.alpha = 0.5;
@@ -298,6 +295,16 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         } else {
             _liveImage.alpha = 0;
             imgView.alpha = 0;
+
+        }
+        
+/**************************Leaving seat notification*****************************/
+
+        if (sensor_count > 50 && isPrepared == YES) {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            _timerLabel.alpha = 0.5;
+        } else {
+            _timerLabel.alpha = 1;
         }
 
     }
