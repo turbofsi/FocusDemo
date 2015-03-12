@@ -7,6 +7,8 @@
 //
 
 #import "MainViewController.h"
+#import "GardenViewController.h"
+#import "userDB.h"
 
 @interface MainViewController ()
 
@@ -187,6 +189,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
     [runLoop addTimer:timer forMode:NSDefaultRunLoopMode];
+    userDB *myDB = [[userDB alloc] init];
+    [myDB creatDataBase];
+    
+    self.isGiveUp = NO;
     
 }
 
@@ -202,7 +208,14 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         
         UIButton *startBtn = (id)[self.view viewWithTag:102];
         startBtn.enabled = YES;
-     
+    }
+    if ([segue.identifier isEqualToString:@"MainToGarden"]) {
+        GardenViewController *gardenVC = [segue destinationViewController];
+        NSMutableArray *gardenArray = [[NSMutableArray alloc] init];
+        userDB *myDB = [[userDB alloc] init];
+        gardenArray = [myDB loadTypeFromDataBaseWithOffset:0];
+        NSLog(@"The gardenArray: %@", gardenArray);
+        gardenVC.gardenArray = [[NSMutableArray alloc] initWithArray:gardenArray];
     }
 }
 
@@ -213,23 +226,38 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 }
 
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if ( event.subtype == UIEventSubtypeMotionShake )
+    {
+        _isGiveUp = YES;
+    }
+}
 
 - (IBAction)StartTimer:(id)sender {
     isPrepared = YES;
-    __block int timeout = 25 * 60;
+    __block int timeout = 10;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
     
     dispatch_source_set_event_handler(_timer, ^{
-        if(timeout<=0){ //倒计时结束，关闭
+        if(timeout<=0 || _isGiveUp == YES){ //倒计时结束，关闭
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
                 NSLog(@"Time up!");
                 _timerLabel.text = @"00:00";
+                
+                userDB *myDB = [[userDB alloc] init];
+                
+                if (_isGiveUp == YES) {
+                    [myDB inserToDataBaseWithType:@"2"];
+                } else {
+                    [myDB inserToDataBaseWithType:@"1"];
+                }                
                 UIButton *setBtn = (id)[self.view viewWithTag:101];
                 setBtn.enabled = YES;
+                _liveImage.alpha = 0;
                 isPrepared = NO;
                 [_session stopRunning];
             });
@@ -309,6 +337,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
     }
 }
+
 
 
 @end

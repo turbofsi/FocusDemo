@@ -24,6 +24,7 @@
 @property (nonatomic, strong) CIDetector *faceDetector;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
 @property (nonatomic, strong) AVCaptureSession *session;
+@property BOOL isGiveUp;
 
 - (IBAction)unwindtoMain:(UIStoryboardSegue *)segue;
 

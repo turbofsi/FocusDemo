@@ -5,6 +5,25 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Garden View Controller-->
+        <scene sceneID="A1R-VP-y1z">
+            <objects>
+                <viewController id="u5y-7m-E2J" customClass="GardenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Hb-Kr-GuB"/>
+                        <viewControllerLayoutGuide type="bottom" id="AbV-9N-KXc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YNQ-j4-gdK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.34300071319999997" green="0.57917061240000001" blue="0.16473619219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GwH-ha-8Mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="236" y="-351"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -78,6 +97,15 @@
                                     <constraint firstItem="MbQ-Dk-vjO" firstAttribute="leading" secondItem="DKU-Hx-oeK" secondAttribute="leading" constant="16" id="ylH-gK-WCR"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J90-wY-EaI">
+                                <rect key="frame" x="137" y="34" width="51" height="30"/>
+                                <state key="normal" title="Garden">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="u5y-7m-E2J" kind="presentation" identifier="MainToGarden" id="AWl-U2-h2J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
