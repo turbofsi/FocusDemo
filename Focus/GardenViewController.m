@@ -85,4 +85,37 @@ int idx = 0;
 
     
 }
+
+- (IBAction)nextAction:(id)sender {
+    if (idx > 0) {
+        idx--;
+    }
+    for(UIView *myImgview in [self.view subviews])
+    {
+        if ([myImgview isKindOfClass:[UIImageView class]]) {
+            [myImgview removeFromSuperview];
+        }
+    }
+    
+    userDB *myDB = [[userDB alloc] init];
+    
+    _gardenArray = [myDB loadTypeFromDataBaseWithOffset:idx];
+    
+    int r = 0;
+    int c = 0;
+    for (int i = 0; i < [_gardenArray count]; i++) {
+        UIImageView *imgView = [[UIImageView alloc] init];
+        NSString *idStr = _gardenArray[i];
+        if ([idStr isEqualToString:@"1"]) {
+            imgView.image = [UIImage imageNamed:@"1"];
+        } else {
+            imgView.image = [UIImage imageNamed:@"2"];
+        }
+        r = i / 3;
+        c = i % 3;
+        imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
+        [self.view addSubview:imgView];
+    }
+
+}
 @end
