@@ -35,6 +35,11 @@ int idx = 0;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
         [self.view addSubview:imgView];
     }
+    
+    NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
+    UILabel *label = (id)[self.view viewWithTag:101];
+    label.text = dateStr;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +87,10 @@ int idx = 0;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
         [self.view addSubview:imgView];
     }
-
+    
+    NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
+    UILabel *label = (id)[self.view viewWithTag:101];
+    label.text = dateStr;
     
 }
 
@@ -116,6 +124,24 @@ int idx = 0;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
         [self.view addSubview:imgView];
     }
+    NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
+    UILabel *label = (id)[self.view viewWithTag:101];
+    label.text = dateStr;
 
+}
+
+- (IBAction)backAction:(UISwipeGestureRecognizer *)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (NSString *)showDateWithOffset: (int)offset {
+    NSDate *myDate = [NSDate date];
+    NSDate *showDate = [NSDate dateWithTimeInterval:-(60 * 60 * 24 * offset) sinceDate:myDate];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"YYYY-MM-dd"];
+    
+    NSString *dateStr = [dateFormatter stringFromDate:showDate];
+    return dateStr;
 }
 @end
