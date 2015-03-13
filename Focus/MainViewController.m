@@ -212,9 +212,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if ([segue.identifier isEqualToString:@"MainToGarden"]) {
         GardenViewController *gardenVC = [segue destinationViewController];
         NSMutableArray *gardenArray = [[NSMutableArray alloc] init];
+        NSMutableArray *dateArray = [[NSMutableArray alloc] init];
         userDB *myDB = [[userDB alloc] init];
         gardenArray = [myDB loadTypeFromDataBaseWithOffset:0];
-        NSLog(@"The gardenArray: %@", gardenArray);
+        dateArray = [myDB loadDateFromDataBase];
+        NSLog(@"The dateArray: %@", dateArray);
         gardenVC.gardenArray = [[NSMutableArray alloc] initWithArray:gardenArray];
     }
 }

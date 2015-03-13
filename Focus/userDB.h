@@ -14,5 +14,6 @@
 - (void)creatDataBase;
 - (void)inserToDataBaseWithType: (NSString *)type;
 - (NSMutableArray *)loadTypeFromDataBaseWithOffset: (int)offset;
+- (NSMutableArray *)loadDateFromDataBase;
 
 @end
