@@ -14,5 +14,7 @@
 - (IBAction)preAction:(id)sender;
 - (IBAction)nextAction:(id)sender;
 - (IBAction)backAction:(UISwipeGestureRecognizer *)sender;
+- (IBAction)shareAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

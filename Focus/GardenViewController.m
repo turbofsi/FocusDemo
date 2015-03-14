@@ -18,6 +18,7 @@
 int idx = 0;
 
 - (void)viewDidLoad {
+    idx = 0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     int r = 0;
@@ -37,8 +38,7 @@ int idx = 0;
     }
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
-    UILabel *label = (id)[self.view viewWithTag:101];
-    label.text = dateStr;
+    _dateLabel.text = dateStr;
     
 }
 
@@ -89,8 +89,7 @@ int idx = 0;
     }
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
-    UILabel *label = (id)[self.view viewWithTag:101];
-    label.text = dateStr;
+    _dateLabel.text = dateStr;
     
 }
 
@@ -125,13 +124,32 @@ int idx = 0;
         [self.view addSubview:imgView];
     }
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
-    UILabel *label = (id)[self.view viewWithTag:101];
-    label.text = dateStr;
+    _dateLabel.text = dateStr;
 
 }
 
 - (IBAction)backAction:(UISwipeGestureRecognizer *)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)shareAction:(UIButton *)sender {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    userDB *myDB = [[userDB alloc] init];
+    array = [myDB loadTypeFromDataBaseWithOffset:0];
+    
+    NSString *shareText = [NSString stringWithFormat:@"I got %lu pomodoros today!", (unsigned long)[array count]];
+    
+    NSArray *itemsToShare = @[shareText];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[];
+    [self presentViewController:activityVC animated:YES completion:NULL];
+    if ([activityVC respondsToSelector:@selector(popoverPresentationController)])
+    {
+        // iOS 8+
+        UIPopoverPresentationController *presentationController = [activityVC popoverPresentationController];
+        
+        presentationController.sourceView = sender; // if button or change to self.view.
+    }
 }
 
 - (NSString *)showDateWithOffset: (int)offset {
