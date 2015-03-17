@@ -34,11 +34,14 @@ int idx = 0;
         r = i / 3;
         c = i % 3;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [self.view addSubview:imgView];
+        [_grassView addSubview:imgView];
+        
     }
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
     _dateLabel.text = dateStr;
+    [self.view bringSubviewToFront:_dateLabel];
+    [self.view sendSubviewToBack:_grassView];
     
 }
 
@@ -61,7 +64,7 @@ int idx = 0;
 
 - (IBAction)preAction:(id)sender {
     idx++;
-    for(UIView *myImgview in [self.view subviews])
+    for(UIView *myImgview in [_grassView subviews])
     {
         if ([myImgview isKindOfClass:[UIImageView class]]) {
             [myImgview removeFromSuperview];
@@ -85,7 +88,7 @@ int idx = 0;
         r = i / 3;
         c = i % 3;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [self.view addSubview:imgView];
+        [_grassView addSubview:imgView];
     }
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
@@ -97,7 +100,7 @@ int idx = 0;
     if (idx > 0) {
         idx--;
     }
-    for(UIView *myImgview in [self.view subviews])
+    for(UIView *myImgview in [_grassView subviews])
     {
         if ([myImgview isKindOfClass:[UIImageView class]]) {
             [myImgview removeFromSuperview];
@@ -121,7 +124,7 @@ int idx = 0;
         r = i / 3;
         c = i % 3;
         imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [self.view addSubview:imgView];
+        [_grassView addSubview:imgView];
     }
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
     _dateLabel.text = dateStr;

@@ -231,6 +231,16 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if ( event.subtype == UIEventSubtypeMotionShake )
     {
+        if (isPrepared) {
+            UIAlertView *giveUpAlert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Do you really want to give up? You will get a spoiled pomodoro if you give up!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Confirm", nil];
+            [giveUpAlert show];
+        }
+        
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
         _isGiveUp = YES;
     }
 }

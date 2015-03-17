@@ -14,7 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface MainViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface MainViewController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *liveImage;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;

@@ -16,5 +16,6 @@
 - (IBAction)backAction:(UISwipeGestureRecognizer *)sender;
 - (IBAction)shareAction:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *grassView;
 
 @end
