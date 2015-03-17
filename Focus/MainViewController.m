@@ -237,7 +237,10 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 
 - (IBAction)StartTimer:(id)sender {
     isPrepared = YES;
-    __block int timeout = 5;
+    _isGiveUp = NO;
+    _timerLabel.text = @"25:00";
+    [_session startRunning];
+    __block int timeout = 25 * 60;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
@@ -249,7 +252,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                 //设置界面的按钮显示 根据自己需求设置
                 NSLog(@"Time up!");
                 _timerLabel.text = @"00:00";
-                
+                _timerLabel.text = @"25:00";
+                UIImageView *imgView = (id)[self.view viewWithTag:107];
+                imgView.alpha = 0;
                 userDB *myDB = [[userDB alloc] init];
                 
                 if (_isGiveUp == YES) {

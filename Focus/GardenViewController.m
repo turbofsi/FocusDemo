@@ -137,9 +137,19 @@ int idx = 0;
     userDB *myDB = [[userDB alloc] init];
     array = [myDB loadTypeFromDataBaseWithOffset:0];
     
-    NSString *shareText = [NSString stringWithFormat:@"I got %lu pomodoros today!", (unsigned long)[array count]];
+    //get the number of successful pomodoro
+    __block int spNum = 0;
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *detStr = [NSString stringWithFormat:@"%@", obj];
+        if ([detStr isEqualToString:@"1"]) {
+            spNum++;
+        }
+    }];
     
-    NSArray *itemsToShare = @[shareText];
+    NSString *shareText = [NSString stringWithFormat:@"I got %d successful pomodoros today!", spNum];
+    UIImage *imgFocus = [UIImage imageNamed:@"gardenicon"];
+    
+    NSArray *itemsToShare = @[shareText, imgFocus];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     activityVC.excludedActivityTypes = @[];
     [self presentViewController:activityVC animated:YES completion:NULL];

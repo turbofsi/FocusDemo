@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAY-CF-wDD">
-                                <rect key="frame" x="135" y="395" width="50" height="50"/>
+                                <rect key="frame" x="135" y="451" width="50" height="50"/>
                                 <state key="normal" image="twitter.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -32,8 +32,10 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grass.png" translatesAutoresizingMaskIntoConstraints="NO" id="3dg-vw-jut">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.34300071319999997" green="0.57917061240000001" blue="0.16473619219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="fHe-mq-XYA" appends="YES" id="3oQ-Zf-yfo"/>
@@ -138,9 +140,9 @@
                                     <constraint firstItem="MbQ-Dk-vjO" firstAttribute="leading" secondItem="DKU-Hx-oeK" secondAttribute="leading" constant="16" id="ylH-gK-WCR"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J90-wY-EaI">
-                                <rect key="frame" x="137" y="34" width="51" height="30"/>
-                                <state key="normal" title="Garden">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J90-wY-EaI">
+                                <rect key="frame" x="121" y="20" width="78" height="109"/>
+                                <state key="normal" image="gardenicon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -278,6 +280,8 @@
     </scenes>
     <resources>
         <image name="check1.png" width="134" height="138"/>
+        <image name="gardenicon.png" width="480" height="687"/>
+        <image name="grass.png" width="320" height="568"/>
         <image name="setting.png" width="222" height="220"/>
         <image name="startBtn.png" width="158" height="162"/>
         <image name="twitter.png" width="1200" height="1200"/>

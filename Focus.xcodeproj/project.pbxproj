@@ -28,6 +28,9 @@
 		18790E311A89327B002B7D24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E301A89327B002B7D24 /* MainViewController.m */; };
 		18790E341A893716002B7D24 /* BreathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E331A893716002B7D24 /* BreathViewController.m */; };
 		18790E371A89374A002B7D24 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18790E361A89374A002B7D24 /* FaceViewController.m */; };
+		18897DC71AB736730087F9A5 /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 18897DC61AB736730087F9A5 /* focus.png */; };
+		18897DC91AB7674B0087F9A5 /* gardenicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 18897DC81AB7674B0087F9A5 /* gardenicon.png */; };
+		18897DCB1AB7B9A30087F9A5 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = 18897DCA1AB7B9A30087F9A5 /* grass.png */; };
 		18936A6C1AB222410062F6EE /* GardenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936A6B1AB222410062F6EE /* GardenViewController.m */; };
 		18936A6F1AB222580062F6EE /* userDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 18936A6E1AB222580062F6EE /* userDB.m */; };
 		18936A721AB222640062F6EE /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18936A701AB222640062F6EE /* 2.png */; };
@@ -80,6 +83,9 @@
 		18790E331A893716002B7D24 /* BreathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreathViewController.m; sourceTree = "<group>"; };
 		18790E351A89374A002B7D24 /* FaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
 		18790E361A89374A002B7D24 /* FaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
+		18897DC61AB736730087F9A5 /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = focus.png; sourceTree = "<group>"; };
+		18897DC81AB7674B0087F9A5 /* gardenicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gardenicon.png; sourceTree = "<group>"; };
+		18897DCA1AB7B9A30087F9A5 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
 		18936A6A1AB222410062F6EE /* GardenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GardenViewController.h; sourceTree = "<group>"; };
 		18936A6B1AB222410062F6EE /* GardenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GardenViewController.m; sourceTree = "<group>"; };
 		18936A6D1AB222580062F6EE /* userDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userDB.h; sourceTree = "<group>"; };
@@ -205,7 +211,10 @@
 		18ECBF6B1A8FBAB600113EE0 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				18897DC81AB7674B0087F9A5 /* gardenicon.png */,
+				18897DC61AB736730087F9A5 /* focus.png */,
 				18286E9B1AB3402600974546 /* twitter.png */,
+				18897DCA1AB7B9A30087F9A5 /* grass.png */,
 				18936A701AB222640062F6EE /* 2.png */,
 				18936A711AB222640062F6EE /* 1.png */,
 				189B32111A8EFC91002842E3 /* setting.png */,
@@ -304,10 +313,13 @@
 				18936A721AB222640062F6EE /* 2.png in Resources */,
 				189B32161A8EFF3A002842E3 /* check2.png in Resources */,
 				18790E151A893201002B7D24 /* Main.storyboard in Resources */,
+				18897DC71AB736730087F9A5 /* focus.png in Resources */,
 				189B32181A8F032D002842E3 /* startBtn.png in Resources */,
 				18790E1A1A893201002B7D24 /* LaunchScreen.xib in Resources */,
 				189B32121A8EFC91002842E3 /* setting.png in Resources */,
 				18286E9C1AB3402600974546 /* twitter.png in Resources */,
+				18897DC91AB7674B0087F9A5 /* gardenicon.png in Resources */,
+				18897DCB1AB7B9A30087F9A5 /* grass.png in Resources */,
 				18632C151AA13F890013FB4B /* alertframe.png in Resources */,
 				18790E171A893201002B7D24 /* Images.xcassets in Resources */,
 			);
