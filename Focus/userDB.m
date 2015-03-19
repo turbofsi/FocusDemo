@@ -48,7 +48,7 @@
         return;
     }
     
-    NSString *sql = @"INSERT INTO garden (p_date, p_type) VALUES (date(\"now\"), ?)";
+    NSString *sql = @"INSERT INTO garden (p_date, p_type) VALUES (date(\"now\", 'localtime'), ?)";
     
     sqlite3_prepare_v2(sqlite, [sql UTF8String], -1, &stmt, NULL);
 //
@@ -77,8 +77,8 @@
         NSLog(@"Fail to init db");
         return nil;
     }
-    NSString *sql1 = @"SELECT p_type from garden where p_date = date(\"now\")";
-    NSString *sql2 = [NSString stringWithFormat:@"SELECT p_type from garden where p_date = date(\"now\", '-%d days')", offset];
+    NSString *sql1 = @"SELECT p_type from garden where p_date = date(\"now\", 'localtime')";
+    NSString *sql2 = [NSString stringWithFormat:@"SELECT p_type from garden where p_date = date(\"now\", 'localtime', '-%d days')", offset];
     if (offset == 0) {
         sqlite3_prepare_v2(sqlite, [sql1 UTF8String], -1, &stmt, NULL);
     } else {
