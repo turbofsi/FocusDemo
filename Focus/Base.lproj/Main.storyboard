@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="231" y="339"/>
         </scene>
-        <!--Take a Breath-->
+        <!--Deep Breath 3 times-->
         <scene sceneID="lj7-cI-SzW">
             <objects>
                 <viewController id="Fcl-bm-84Z" customClass="BreathViewController" sceneMemberID="viewController">
@@ -191,6 +191,24 @@
                                     <segue destination="0CW-Ni-Oo3" kind="presentation" id="Bbg-an-ZwJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4 Seconds to inhale" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-xM-89G">
+                                <rect key="frame" x="25" y="205" width="254" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                <color key="textColor" red="1" green="0.20465215489999999" blue="0.2257005114" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 Seconds to hold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-zh-A3l">
+                                <rect key="frame" x="40" y="283" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8 Seconds to exhale" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZL-eZ-eCr">
+                                <rect key="frame" x="8" y="362" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                <color key="textColor" red="0.43550119510000002" green="0.73536142680000005" blue="0.20916227230000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -200,7 +218,7 @@
                             <constraint firstItem="UdG-1w-vYi" firstAttribute="top" secondItem="5iS-AW-ZVG" secondAttribute="bottom" constant="377" id="Rjf-bP-7LC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Take a Breath" id="Jcc-Gr-Y5T"/>
+                    <navigationItem key="navigationItem" title="Deep Breath 3 times" id="Jcc-Gr-Y5T"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YT2-jP-7ga" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,13 +14,17 @@
 
 @implementation BreathViewController
 
+int exhalCount = 0;
+int breathTime = 3;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 #pragma mark - shows the imageView
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 430, 100, 120)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 300, 100, 120)];
     UIImage *image = [UIImage imageNamed:@"balloon"];
     imgView.image = image;
     imgView.tag = 101;
+    imgView.alpha = 0.8;
     [self.view addSubview:imgView];
     /******************Set Breath Detector********************/
     NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
@@ -62,13 +66,21 @@
     
     double gap = lowPassResults - 0.55;
     if (gap > 0) {
-        frame.origin.y = frame.origin.y - 20 * gap;
+        frame.size.width = frame.size.width + 3 * gap;
+        frame.size.height = frame.size.height + 4 * gap;
+        frame.origin.x = frame.origin.x - 1.5 * gap;
+        exhalCount++;
     }else {
-        frame.origin.y = frame.origin.y - 0.5 * gap;
+        frame.origin.y = frame.origin.y + 0.5 * gap;
     }
     
+    if (exhalCount > 1 && breathTime != 0) {
+        frame = CGRectMake(110, 300, 100, 120);
+        breathTime--;
+        exhalCount = 0;
+    }
     
-    if (frame.origin.y < -120) {
+    if (breathTime == 0) {
         [imgView removeFromSuperview];
         UIButton *btn = (id)[self.view viewWithTag:102];
         btn.enabled = YES;

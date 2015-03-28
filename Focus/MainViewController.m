@@ -18,6 +18,7 @@
 
 
 int sensor_count = 0;
+int taskNum = 0;
 bool isPrepared = NO;
 
 int left_x_position, right_x_position;
@@ -222,10 +223,45 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 - (IBAction)unwindtoMain:(UIStoryboardSegue *)segue {
-    
-    sensor_count = 0;
-    [_session startRunning];
+    if (taskNum == 0) {
+        UIAlertView *alertShow = [[UIAlertView alloc] initWithTitle:@"How many pomodoro you plan to get?"
+                                                            message:@"Please Enter The number of pomodoro"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"Confirm", nil];
+        alertShow.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertShow show];
+    }
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+/**********************Set how many pomodoro you wanna get***********************/
+
+    if (alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
+        if (buttonIndex == 1) {
+            
+            UITextField *tf = [alertView textFieldAtIndex:0];
+            NSString *numStr = tf.text;
+            
+            int num = [numStr intValue];
+            
+            taskNum = num;
+            
+            [self drawPomodorosWithNum:taskNum];
+            
+            
+        }
+    }
+    
+/**********************Give Up alert part***********************/
+    
+    else {
+        if (buttonIndex == 1) {
+            _isGiveUp = YES;
+        }
+    }
+    
 }
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
@@ -239,18 +275,16 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        _isGiveUp = YES;
-    }
-}
+
+    
 
 - (IBAction)StartTimer:(id)sender {
+    sensor_count = 0;
     isPrepared = YES;
     _isGiveUp = NO;
     _timerLabel.text = @"25:00";
     [_session startRunning];
-    __block int timeout = 25 * 60;
+    __block int timeout = 5;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
@@ -263,14 +297,18 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                 NSLog(@"Time up!");
                 _timerLabel.text = @"00:00";
                 _timerLabel.text = @"25:00";
+                _timerLabel.alpha = 1;
+                
                 UIImageView *imgView = (id)[self.view viewWithTag:107];
                 imgView.alpha = 0;
                 userDB *myDB = [[userDB alloc] init];
                 
                 if (_isGiveUp == YES) {
                     [myDB inserToDataBaseWithType:@"2"];
+                    [self removePomodoroWithNum:taskNum];
                 } else {
                     [myDB inserToDataBaseWithType:@"1"];
+                    [self removePomodoroWithNum:1];
                 }                
                 UIButton *setBtn = (id)[self.view viewWithTag:101];
                 setBtn.enabled = YES;
@@ -355,6 +393,39 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
 }
 
+
+#pragma mark - Draw or remove pomodoros on canvas
+- (void)drawPomodorosWithNum:(int) num {
+    int r = 0;
+    int c = 0;
+    for (int i = 0; i < num; i++) {
+        UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.image = [UIImage imageNamed:@"1"];
+        r = i / 6;
+        c = i % 6;
+        imgView.frame = CGRectMake(64 + c * 32, 150 + r * 64, 32, 32);
+        [self.view addSubview:imgView];
+        
+    }
+}
+
+- (void)removePomodoroWithNum:(int) num {
+    for(UIView *myImgview in [self.view subviews])
+    {
+        if ([myImgview isKindOfClass:[UIImageView class]]) {
+            CGRect frame = myImgview.frame;
+            if (frame.size.width == 32 && taskNum != 0) {
+                [myImgview removeFromSuperview];
+                taskNum--;
+                num--;
+                if (num == 0) {
+                    break;
+                }
+            }
+            
+        }
+    }
+}
 
 
 @end
