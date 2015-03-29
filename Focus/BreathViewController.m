@@ -74,7 +74,7 @@ int breathTime = 3;
         frame.origin.y = frame.origin.y + 0.5 * gap;
     }
     
-    if (exhalCount > 1 && breathTime != 0) {
+    if (exhalCount > 190 && breathTime != 0) {
         frame = CGRectMake(110, 300, 100, 120);
         breathTime--;
         exhalCount = 0;

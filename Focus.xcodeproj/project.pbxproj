@@ -39,6 +39,8 @@
 		189B32141A8EFF36002842E3 /* check1.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32131A8EFF36002842E3 /* check1.png */; };
 		189B32161A8EFF3A002842E3 /* check2.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32151A8EFF3A002842E3 /* check2.png */; };
 		189B32181A8F032D002842E3 /* startBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 189B32171A8F032D002842E3 /* startBtn.png */; };
+		18AD2DB01AC6FC91002E0EAC /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AD2DAF1AC6FC91002E0EAC /* share.png */; };
+		18AD2DB21AC70675002E0EAC /* fruitnote.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AD2DB11AC70675002E0EAC /* fruitnote.png */; };
 		18BBD3581AB231510020AAF9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BBD3571AB231510020AAF9 /* libsqlite3.0.dylib */; };
 		18BBD35A1AB2315A0020AAF9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BBD3591AB2315A0020AAF9 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,8 @@
 		189B32131A8EFF36002842E3 /* check1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check1.png; sourceTree = "<group>"; };
 		189B32151A8EFF3A002842E3 /* check2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check2.png; sourceTree = "<group>"; };
 		189B32171A8F032D002842E3 /* startBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startBtn.png; sourceTree = "<group>"; };
+		18AD2DAF1AC6FC91002E0EAC /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		18AD2DB11AC70675002E0EAC /* fruitnote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fruitnote.png; sourceTree = "<group>"; };
 		18BBD3571AB231510020AAF9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		18BBD3591AB2315A0020AAF9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -211,8 +215,10 @@
 		18ECBF6B1A8FBAB600113EE0 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				18AD2DAF1AC6FC91002E0EAC /* share.png */,
 				18897DC81AB7674B0087F9A5 /* gardenicon.png */,
 				18897DC61AB736730087F9A5 /* focus.png */,
+				18AD2DB11AC70675002E0EAC /* fruitnote.png */,
 				18286E9B1AB3402600974546 /* twitter.png */,
 				18897DCA1AB7B9A30087F9A5 /* grass.png */,
 				18936A701AB222640062F6EE /* 2.png */,
@@ -309,9 +315,11 @@
 			files = (
 				18936A731AB222640062F6EE /* 1.png in Resources */,
 				189B32141A8EFF36002842E3 /* check1.png in Resources */,
+				18AD2DB21AC70675002E0EAC /* fruitnote.png in Resources */,
 				1824E1641A8AD8E7007A5FEF /* balloon.png in Resources */,
 				18936A721AB222640062F6EE /* 2.png in Resources */,
 				189B32161A8EFF3A002842E3 /* check2.png in Resources */,
+				18AD2DB01AC6FC91002E0EAC /* share.png in Resources */,
 				18790E151A893201002B7D24 /* Main.storyboard in Resources */,
 				18897DC71AB736730087F9A5 /* focus.png in Resources */,
 				189B32181A8F032D002842E3 /* startBtn.png in Resources */,
