@@ -20,6 +20,8 @@ int breathTime = 3;
 - (void)viewDidLoad {
     [super viewDidLoad];
 #pragma mark - shows the imageView
+    exhalCount = 0;
+    breathTime = 3;
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 300, 100, 120)];
     UIImage *image = [UIImage imageNamed:@"balloon"];
     imgView.image = image;
@@ -74,10 +76,13 @@ int breathTime = 3;
         frame.origin.y = frame.origin.y + 0.5 * gap;
     }
     
-    if (exhalCount > 190 && breathTime != 0) {
+    if (exhalCount > 160 && breathTime != 0) {
         frame = CGRectMake(110, 300, 100, 120);
         breathTime--;
         exhalCount = 0;
+        UILabel *manyLabel = (id)[self.view viewWithTag:303];
+        NSString *manyStr = [NSString stringWithFormat:@"%d", 3 - breathTime];
+        manyLabel.text = manyStr;
     }
     
     if (breathTime == 0) {

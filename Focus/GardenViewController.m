@@ -21,22 +21,7 @@ int idx = 0;
     idx = 0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    int r = 0;
-    int c = 0;
-    for (int i = 0; i < [_gardenArray count]; i++) {
-        UIImageView *imgView = [[UIImageView alloc] init];
-        NSString *idStr = _gardenArray[i];
-        if ([idStr isEqualToString:@"1"]) {
-            imgView.image = [UIImage imageNamed:@"1"];
-        } else {
-            imgView.image = [UIImage imageNamed:@"2"];
-        }
-        r = i / 3;
-        c = i % 3;
-        imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [_grassView addSubview:imgView];
-        
-    }
+    [self drawPomodoros];
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
     _dateLabel.text = dateStr;
@@ -75,21 +60,7 @@ int idx = 0;
 
     _gardenArray = [myDB loadTypeFromDataBaseWithOffset:idx];
     
-    int r = 0;
-    int c = 0;
-    for (int i = 0; i < [_gardenArray count]; i++) {
-        UIImageView *imgView = [[UIImageView alloc] init];
-        NSString *idStr = _gardenArray[i];
-        if ([idStr isEqualToString:@"1"]) {
-            imgView.image = [UIImage imageNamed:@"1"];
-        } else {
-            imgView.image = [UIImage imageNamed:@"2"];
-        }
-        r = i / 3;
-        c = i % 3;
-        imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [_grassView addSubview:imgView];
-    }
+    [self drawPomodoros];
     
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
     _dateLabel.text = dateStr;
@@ -111,21 +82,8 @@ int idx = 0;
     
     _gardenArray = [myDB loadTypeFromDataBaseWithOffset:idx];
     
-    int r = 0;
-    int c = 0;
-    for (int i = 0; i < [_gardenArray count]; i++) {
-        UIImageView *imgView = [[UIImageView alloc] init];
-        NSString *idStr = _gardenArray[i];
-        if ([idStr isEqualToString:@"1"]) {
-            imgView.image = [UIImage imageNamed:@"1"];
-        } else {
-            imgView.image = [UIImage imageNamed:@"2"];
-        }
-        r = i / 3;
-        c = i % 3;
-        imgView.frame = CGRectMake(64 + c * 64, 100 + r * 64, 64, 64);
-        [_grassView addSubview:imgView];
-    }
+    [self drawPomodoros];
+    
     NSString *dateStr = [NSString stringWithString:[self showDateWithOffset:idx]];
     _dateLabel.text = dateStr;
 
@@ -142,15 +100,17 @@ int idx = 0;
     
     //get the number of successful pomodoro
     __block int spNum = 0;
+    __block unsigned long spoilNum = 0;
     [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *detStr = [NSString stringWithFormat:@"%@", obj];
         if ([detStr isEqualToString:@"1"]) {
             spNum++;
         }
     }];
+    spoilNum = [array count] - spNum;
     
-    NSString *shareText = [NSString stringWithFormat:@"I got %d successful pomodoros today!", spNum];
-    UIImage *imgFocus = [UIImage imageNamed:@"gardenicon"];
+    NSString *shareText = [NSString stringWithFormat:@"I got %d successful pomodoros :) and %lu spoiled pomodoros :( today!", spNum, spoilNum];
+    UIImage *imgFocus = [UIImage imageNamed:@"garden"];
     
     NSArray *itemsToShare = @[shareText, imgFocus];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
@@ -174,5 +134,23 @@ int idx = 0;
     
     NSString *dateStr = [dateFormatter stringFromDate:showDate];
     return dateStr;
+}
+
+- (void)drawPomodoros{
+    int r = 0;
+    int c = 0;
+    for (int i = 0; i < [_gardenArray count]; i++) {
+        UIImageView *imgView = [[UIImageView alloc] init];
+        NSString *idStr = _gardenArray[i];
+        if ([idStr isEqualToString:@"1"]) {
+            imgView.image = [UIImage imageNamed:@"1"];
+        } else {
+            imgView.image = [UIImage imageNamed:@"2"];
+        }
+        r = i / 5;
+        c = i % 5;
+        imgView.frame = CGRectMake(c * 64, 120 + r * 64, 64, 64);
+        [_grassView addSubview:imgView];
+    }
 }
 @end
