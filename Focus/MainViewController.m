@@ -245,13 +245,27 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             NSString *numStr = tf.text;
             
             int num = [numStr intValue];
+            int numx = 0;
             
-            taskNum = num;
+            if (num < 1) {
+                numx = 1;
+            } else if (num > 4) {
+                numx = 4;
+            } else {
+                numx = [numStr intValue];
+            }
+            
+            
+            taskNum = numx;
             
             [self drawPomodorosWithNum:taskNum];
             
             
         }
+    }
+    
+    else if (alertView.tag == 501) {
+        NSLog(@"501 completed");
     }
     
 /**********************Give Up alert part***********************/
@@ -284,40 +298,37 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     _isGiveUp = NO;
     _timerLabel.text = @"25:00";
     [_session startRunning];
-    __block int timeout = 5;
+    __block int timeout = 60 * 25;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
     
     dispatch_source_set_event_handler(_timer, ^{
-        if(timeout<=0 || _isGiveUp == YES){ //倒计时结束，关闭
+        if(timeout<=0 || _isGiveUp == YES){
+/************************倒计时结束，关闭***************************/
+            
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 //设置界面的按钮显示 根据自己需求设置
                 NSLog(@"Time up!");
-                _timerLabel.text = @"00:00";
-                _timerLabel.text = @"25:00";
-                _timerLabel.alpha = 1;
                 
-                UIImageView *imgView = (id)[self.view viewWithTag:107];
-                imgView.alpha = 0;
-                userDB *myDB = [[userDB alloc] init];
+                if (!_isGiveUp) {
+                    UIAlertView *finishAlert = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:@"You have got a red pomodoro in your garden! You can take a break for 5 minutes." delegate:self cancelButtonTitle:@"Done" otherButtonTitles: nil];
+                    finishAlert.tag = 501;
+                    [finishAlert show];
+                }
                 
-                if (_isGiveUp == YES) {
-                    [myDB inserToDataBaseWithType:@"2"];
-                    [self removePomodoroWithNum:taskNum];
-                } else {
-                    [myDB inserToDataBaseWithType:@"1"];
-                    [self removePomodoroWithNum:1];
-                }                
-                UIButton *setBtn = (id)[self.view viewWithTag:101];
-                setBtn.enabled = YES;
-                _liveImage.alpha = 0;
-                isPrepared = NO;
-                [_session stopRunning];
+                [self standardTimeUpAction];
+                
+                if (!_isGiveUp && taskNum != 0) {
+                    [self breakTimeAction];
+                    [self performSelector:@selector(enableAction) withObject:nil afterDelay:10];
+                } else{
+                    [self enableAction];
+                }
             });
         }
-        //
+/**************************************************************************/
         
         
         else {
@@ -427,5 +438,90 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
 }
 
+- (void)standardTimeUpAction{
+    _timerLabel.text = @"00:00";
+    _timerLabel.text = @"25:00";
+    _timerLabel.alpha = 1;
+    
+    UIImageView *imgView = (id)[self.view viewWithTag:107];
+    imgView.alpha = 0;
+    userDB *myDB = [[userDB alloc] init];
+    
+    if (_isGiveUp == YES) {
+        [myDB inserToDataBaseWithType:@"2"];
+        [self removePomodoroWithNum:taskNum];
+    } else {
+        [myDB inserToDataBaseWithType:@"1"];
+        [self removePomodoroWithNum:1];
+    }
+//    UIButton *setBtn = (id)[self.view viewWithTag:101];
+//    setBtn.enabled = YES;
+    _liveImage.alpha = 0;
+    isPrepared = NO;
+    [_session stopRunning];
+
+}
+
+- (void)enableAction {
+    UIButton *setBtn = (id)[self.view viewWithTag:101];
+    setBtn.enabled = YES;
+}
+
+- (void)breakTimeAction {
+    __block int timeout = 5 * 60;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
+    
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0)
+        {
+            /************************倒计时结束，关闭**************************/
+            
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                NSLog(@"Time up!");
+                _timerLabel.text = @"00:00";
+                _timerLabel.text = @"25:00";
+                
+            });
+        }
+        /**************************************************************************/
+        
+        
+        else
+        {
+            int minutes = timeout / 60;
+            int seconds = timeout % 60;
+            
+            NSString *minStr = [[NSString alloc] init];
+            NSString *secStr = [[NSString alloc] init];
+            
+            if (minutes < 10) {
+                minStr = [NSString stringWithFormat:@"0%d", minutes];
+            } else {
+                minStr = [NSString stringWithFormat:@"%d", minutes];
+            }
+            
+            if (seconds < 10) {
+                secStr = [NSString stringWithFormat:@"0%d", seconds];
+            } else {
+                secStr = [NSString stringWithFormat:@"%d", seconds];
+            }
+            
+            NSString *strTime = [NSString stringWithFormat:@"%@:%@", minStr, secStr];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                _timerLabel.text = strTime;
+                
+            });
+            timeout--;
+        }
+    });
+    
+    
+    dispatch_resume(_timer);
+}
 
 @end
